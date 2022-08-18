@@ -50,37 +50,4 @@ create table `skills` (
 );
 
 
-create table companies_projects(
-                                   `id_company` int not null,
-                                   `id_project` int not null,
-                                   primary key (`id_company`,`id_project`),
-                                   foreign key (`id_company`) references companies(`id`),
-                                   foreign key (`id_project`) references projects (`id`)
-);
 
-
-create table projects_customers(
-                                   `id_customer`int not null,
-                                   `id_project`int not null,
-                                   primary key(`id_customer`,`id_project`),
-                                   foreign key (`id_customer`) references customers(`id`),
-                                   foreign key (`id_project`) references projects (`id`)
-);
-
-
-create table developers_skills(
-                                  `id_developer` int not null,
-                                  `id_skill` int not null,
-                                  primary key(`id_developer`,`id_skill`),
-                                  foreign key(`id_developer`) references developers(`id`),
-                                  foreign key(`id_skill`) references skills(`id`)
-);
-
-
-create table projects_developers(
-                                    `id_project` int not null,
-                                    `id_developer` int not null,
-                                    primary key(`id_project`,`id_developer`),
-                                    foreign key(`id_project`) references projects(`id`),
-                                    foreign key(`id_developer`) references developers(`id`)
-);
